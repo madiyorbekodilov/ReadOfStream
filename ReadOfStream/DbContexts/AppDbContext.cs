@@ -13,4 +13,16 @@ public class AppDbContext : DbContext
     {
         options.UseSqlServer("Server=(LocalDB)\\MSSQLLocalDB;Database=ReadOfStream;Integrated Security=True;");
     }
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        modelBuilder.Entity<TagToUser>()
+            .HasKey(tu => new { tu.UserId, tu.TagId });
+
+        modelBuilder.Entity<TagToUser>()
+            .HasOne(tu => tu.User)
+            .WithMany(u => u.Tags)
+            .HasForeignKey(tu => tu.UserId);
+    }
+
+
 }

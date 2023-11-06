@@ -6,6 +6,6 @@ public class TagToUser
     public Guid UserId { get; set; }
     public Guid TagId { get; set; }
 
-    public User? User { get; set; }
+    public User User { get; set; }
     public List<Tag>? Tags { get; set; }
 }
