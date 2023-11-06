@@ -11,6 +11,6 @@ public class AppDbContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder options)
     {
-        options.UseSqlServer("YourConnectionStringHere");
+        options.UseSqlServer("Server=(LocalDB)\\MSSQLLocalDB;Database=ReadOfStream;Integrated Security=True;");
     }
 }
